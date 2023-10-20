@@ -15,4 +15,4 @@ jobs:
         exit-code: '1'
         exit-level: 'warn'
         ignore: 'CIS-DI-0001,DKL-DI-0006'
-        accept-key: 'YARN_VERSION,alpineArch,GNUPGHOME,NODE_VERSION,ARCH'
+        accept-key: 'YARN_VERSION,alpineArch,GNUPGHOME,NODE_VERSION,ARCH,CHECKSUM'
