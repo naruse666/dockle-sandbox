@@ -1,0 +1,17 @@
+name: Dockle Check
+on: push
+jobs:
+  dockle:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - run: docker build -t node .
+
+    - uses: goodwithtech/dockle-action@main
+      with:
+        image: 'node'
+        format: 'list'
+        exit-code: '1'
+        exit-level: 'warn'
+        ignore: 'CIS-DI-0001,DKL-DI-0006'
