@@ -13,18 +13,15 @@
 [CHECKPOINT.md](https://github.com/goodwithtech/dockle/blob/master/CHECKPOINT.md#docker-image-checkpoints).
 
 # 使用感
-## :+1:
 - 学習コストがとても低く、シンプルな使い方で導入が楽。
 - CIのテンプレートが用意されていて簡単。
 - 一般的なプラクティスを検知できるので、アプリケーションのエンジニアが作ったDockerfileでも最低限のセキュリティは保てそう
-
-## :-1:
-- CIでFATALが見つかったとして、検知に止まり人間に通知する仕組みを作らなければ行けない。
-  - 対象がpushされたイメージなのでCIである必要はないと感じる。
-  - AWSであれば定期実行のlambdaを作る等の方がライフサイクルにあっている気がする.
+- PRがマージされた際にイメージのビルド&プッシュが実行されると想定して、指定した`exit-level`でpushを中止する等の使い道になりそう？
+ - インテグレーションが気になるところ(PR内で完結しないのでどうやって人間に気づかせるか)
 - ローカルでの実行とGitHub Actionsでの実行結果が違う。
   - 基準はわからないが、クレデンシャルが含まれているエラーが出る。(versionなので別の分類をして欲しいところ)
 ```
 FATAL	- CIS-DI-0010: Do not store credential in environment variables/files
 	* Suspicious ENV key found : YARN_VERSION on /bin/sh -c #(nop)  ENV YARN_VERSION=1.22.19 (You can suppress it with --accept-key)
 ```
+   - これはaccept-key(cliだと`-ak`)を使って無視できる
