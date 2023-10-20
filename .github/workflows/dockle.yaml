@@ -13,6 +13,6 @@ jobs:
         image: 'node'
         format: 'list'
         exit-code: '1'
-        exit-level: 'warn'
+        exit-level: 'fatal'
         ignore: 'CIS-DI-0001,DKL-DI-0006'
         accept-key: 'YARN_VERSION,alpineArch,GNUPGHOME,NODE_VERSION,ARCH,CHECKSUM,--strip-components'
